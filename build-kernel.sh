@@ -4,7 +4,7 @@ echo "Building the Fairphone 2 Kernel in Docker."
 
 cd /var/fairphone_os/
 
-if [ -d "android/" ]; then
+if [ ! -d "android/" ]; then
 	mkdir android/
 	cd android/
 	echo "Initialising repo"
@@ -13,7 +13,7 @@ else
 	cd android/
 fi
 
-if [ -d "out/" ]; then
+if [ ! -d "out/" ]; then
 	mkdir out/
 fi
 
