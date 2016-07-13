@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Building the Fairphone 2 Kernel in Docker."
+
 cd /var/fairphone_os/
 
 if [ -d "android/" ]; then
