@@ -33,7 +33,8 @@ if [ ! -f out/target/product/FP2/boot.img ]; then
 	echo "Compilation failed."
 else
 	echo "Compilation finished"
-	cp out/target/product/FP2/boot.img /var/fairphone_os/out/boot-$(git -C kernel/ rev-parse --short HEAD)-$(date -u +%Y-%m-%d).img
+	mkdir -p /var/fairphone_os/out/
+	cp out/target/product/FP2/boot.img /var/fairphone_os/out/fairphone-2-kernel-$(git -C kernel/ rev-parse --short HEAD)-$(date -u +%Y-%m-%d).img
 fi
 
 echo "Script finished."
