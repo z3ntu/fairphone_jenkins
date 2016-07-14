@@ -29,7 +29,7 @@ choosecombo 1 FP2 2
 
 make -j10 bootimage
 
-if [ ! -f out/target/product/FP2/boot.img ];
+if [ ! -f out/target/product/FP2/boot.img ]; then
 	echo "Compilation failed."
 else
 	echo "Compilation finished"
