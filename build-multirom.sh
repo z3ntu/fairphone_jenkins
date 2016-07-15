@@ -5,6 +5,8 @@
 make -j10 multirom_zip
 
 ls -al out/target/product/FP2/
+ls -al
+pwd
 
 if [ ! -f out/target/product/FP2/multirom* ]; then
         echo "Compilation failed."
