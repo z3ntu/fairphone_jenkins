@@ -2,6 +2,8 @@
 
 ./fairphone_jenkins/common.sh
 
+cd /var/fairphone_os/android
+
 make -j10 bootimage
 
 if [ ! -f out/target/product/FP2/boot.img ]; then

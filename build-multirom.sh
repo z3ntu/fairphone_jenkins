@@ -2,11 +2,9 @@
 
 ./fairphone_jenkins/common.sh
 
-make -j10 multirom_zip
+cd /var/fairphone_os/android
 
-ls -al out/target/product/FP2/
-ls -al
-pwd
+make -j10 multirom_zip
 
 if [ ! -f out/target/product/FP2/multirom* ]; then
         echo "Compilation failed."
