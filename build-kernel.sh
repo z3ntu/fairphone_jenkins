@@ -1,40 +1,14 @@
 #!/bin/bash
 
-echo "Building the Fairphone 2 Kernel in Docker."
-
-cd /var/fairphone_os/
-
-if [ ! -d "android/" ]; then
-	mkdir android/
-	cd android/
-	echo "Initialising repo"
-	repo init -u https://github.com/z3ntu/android_manifest_fairphone_fp2 -b multirom
-else
-	cd android/
-fi
-
-if [ ! -d "out/" ]; then
-	mkdir out/
-fi
-
-echo "Pulling new changes"
-repo sync -j10 -c -f
-
-echo "Cleaning up"
-make -j10 clean
-
-source build/envsetup.sh
-
-choosecombo 1 FP2 2
+./common.sh
 
 make -j10 bootimage
 
 if [ ! -f out/target/product/FP2/boot.img ]; then
-	echo "Compilation failed."
+        echo "Compilation failed."
 else
-	echo "Compilation finished"
-	mkdir -p /var/fairphone_os/out/
-	cp out/target/product/FP2/boot.img /var/fairphone_os/out/fairphone-2-kernel-$(git -C kernel/ rev-parse --short HEAD)-$(date -u +%Y-%m-%d).img
+        echo "Compilation finished"
+        cp out/target/product/FP2/boot.img /var/out/fairphone-2-kernel-$(git -C kernel/ rev-parse --short HEAD)-$(date -u +%Y-%m-%d).img
 fi
 
-echo "Script finished."
+
