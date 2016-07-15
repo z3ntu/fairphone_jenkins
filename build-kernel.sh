@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./common.sh
+./fairphone_jenkins/build-multirom.sh
 
 make -j10 bootimage
 
