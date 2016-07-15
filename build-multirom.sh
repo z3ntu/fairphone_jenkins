@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./fairphone_jenkins/common.sh
+source ./fairphone_jenkins/common.sh
 
 cd /var/fairphone_os/android
 
