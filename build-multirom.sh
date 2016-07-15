@@ -6,7 +6,7 @@ cd /var/fairphone_os/android
 
 make -j10 multirom_zip
 
-if [ ! -f out/target/product/FP2/multirom-*-UNOFFICIAL-FP2.zip ];
+if [ ! -f out/target/product/FP2/multirom-*-UNOFFICIAL-FP2.zip ]; then
         echo "Compilation failed."
 else
         echo "Compilation finished"
