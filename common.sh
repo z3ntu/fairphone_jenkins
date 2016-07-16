@@ -10,7 +10,7 @@ if [ ! -d "android/" ]; then
 	echo "Initialising repo"
 	repo init -u https://github.com/z3ntu/android_manifest_fairphone_fp2 -b multirom
 	# Add multirom
-	git clone https://github.com/Tasssadar/multirom.git system/extras/multirom
+	git clone https://github.com/z3ntu/multirom.git system/extras/multirom
 	git -C system/extras/multirom/ submodule update --init
 else
 	cd android/
