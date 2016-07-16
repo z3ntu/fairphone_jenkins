@@ -29,7 +29,7 @@ rm $repopath/kernel/*
 echo "Copying $(basename $kernel_filename) to repo."
 cp $kernel_filename $repopath/kernel
 
-manifest_content=$(python generate-manifest.py $multirom_filename $recovery_filename)
+manifest_content=$(python /home/jenkins/fairphone_jenkins/generate-manifest.py $multirom_filename $recovery_filename)
 echo -n $manifest_content > "$repopath/manifest.json"
 
 echo "Updated manifest. Committing and pushing!"
