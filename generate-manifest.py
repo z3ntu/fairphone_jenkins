@@ -26,9 +26,9 @@ manifest['gpg'] = False
 manifest['devices'] = []
 devices = []
 files = []
-files.append({"url": url_base + "installer/" + os.path.basename(mr_filename), "version": mr_version, "size": os.path.getsize(mr_filename), "md5": hashlib.md5(open(mr_filename, "rb").read()).hexdigest()})
-files.append({"url": url_base + "recovery/" + os.path.basename(rec_filename), "version": rec_version, "size": os.path.getsize(rec_filename), "md5": hashlib.md5(open(rec_filename, "rb").read()).hexdigest()})
-files.append({"url": url_base + "uninstaller/multirom_uninstaller.zip", "version": "", "size": os.path.getsize(uninstaller), "md5": hashlib.md5(open(uninstaller, "rb").read()).hexdigest()})
+files.append({"url": url_base + "installer/" + os.path.basename(mr_filename), "version": mr_version, "size": os.path.getsize(mr_filename), "md5": hashlib.md5(open(mr_filename, "rb").read()).hexdigest(), "type": "multirom"})
+files.append({"url": url_base + "recovery/" + os.path.basename(rec_filename), "version": rec_version, "size": os.path.getsize(rec_filename), "md5": hashlib.md5(open(rec_filename, "rb").read()).hexdigest(), "type": "recovery"})
+files.append({"url": url_base + "uninstaller/multirom_uninstaller.zip", "version": "", "size": os.path.getsize(uninstaller), "md5": hashlib.md5(open(uninstaller, "rb").read()).hexdigest(), "type": "uninstaller"})
 ubuntu_touch = {"req_multirom": "33", "req_recovery": "mrom20160716-01"}
 devices.append({"name": "FP2", "files": files, "ubuntu_touch": ubuntu_touch})
 
