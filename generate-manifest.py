@@ -34,5 +34,5 @@ devices.append({"name": "FP2", "files": files, "ubuntu_touch": ubuntu_touch})
 
 manifest['devices'] = devices
 
-output = json.dumps(manifest)
+output = json.dumps(manifest, sort_keys=True)
 print(output)
