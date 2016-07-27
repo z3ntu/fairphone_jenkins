@@ -1,6 +1,9 @@
 #!/bin/bash
 
-echo "Building the Fairphone 2 Kernel in Docker."
+export USE_CCACHE=1
+export CCACHE_DIR=/var/fairphone_os/ccache
+
+echo "Building in Docker."
 
 cd /var/fairphone_os/
 
@@ -30,6 +33,3 @@ make -j10 clean
 source build/envsetup.sh
 
 choosecombo 1 FP2 2
-
-export USE_CCACHE=1
-export CCACHE_DIR=/var/fairphone_os/ccache
