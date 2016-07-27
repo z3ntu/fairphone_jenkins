@@ -34,5 +34,7 @@ echo -n $manifest_content > "$repopath/manifest.json"
 
 echo "Updated manifest. Committing and pushing!"
 git -C $repopath add $repopath
-git -c "user.name=Jenkins (z3ntu)" -c "user.email=noreply@z3ntu.xyz" -C $repopath commit -m "MultiROM FP2"
+export GIT_AUTHOR_NAME="Jenkins"
+export GIT_AUTHOR_EMAIL="noreply@z3ntu.xyz"
+git -c "user.name=Luca Weiss" -c "user.email=noreply@z3ntu.xyz" -C $repopath commit -m "MultiROM FP2"
 git -C $repopath push

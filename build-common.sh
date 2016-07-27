@@ -16,6 +16,11 @@ else
 	cd android/
 fi
 
+if [ ! -d "/var/fairphone_os/ccache" ]; then
+	mkdir /var/fairphone_os/ccache
+	prebuilts/misc/linux-x86/ccache/ccache -M 100G
+fi
+
 echo "Pulling new changes"
 repo sync -j10 -c -f
 
@@ -26,3 +31,5 @@ source build/envsetup.sh
 
 choosecombo 1 FP2 2
 
+export USE_CCACHE=1
+export CCACHE_DIR=/var/fairphone_os/ccache
