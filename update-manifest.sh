@@ -31,7 +31,7 @@ echo "Packaging kernel $(basename $kernel_filename)."
 source $(dirname $0)/package-kernel.sh 
 package_kernel
 
-manifest_content=$(python /home/jenkins/fairphone_jenkins/generate-manifest.py $multirom_filename $recovery_filename)
+manifest_content=$(python /home/jenkins/fairphone_jenkins/generate-manifest.py $multirom_filename $recovery_filename $kernel_filename)
 echo -n $manifest_content > "$repopath/manifest.json"
 
 echo "Updated manifest. Committing and pushing!"
