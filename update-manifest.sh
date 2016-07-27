@@ -6,13 +6,13 @@ outpath="/home/jenkins/workspace/out"
 repopath="/home/jenkins/multirom_fairphone_fp2"
 
 if [ ! -d $repopath ]; then
-	git clone git@multirom.github.com:z3ntu/multirom_fairphone_fp2.git $repopath
+  git clone git@multirom.github.com:z3ntu/multirom_fairphone_fp2.git $repopath
 fi
 
 multirom_filename=$(ls -t $outpath/multirom-*-UNOFFICIAL-FP2.zip | head -1)
 recovery_filename=$(ls -t $outpath/TWRP_*_multirom_FP2_*.img | head -1)
 kernel_filename=$(ls -t $outpath/fairphone-2-kernel-*.img | head -1)
-# TODO Also add uninstaller and possibly the kernel (if I get to know how to package that)
+# TODO Also add uninstaller (+Jenkins recipe)
 
 echo "Cleaning $repopath/installer/"
 rm $repopath/installer/*
@@ -26,8 +26,10 @@ cp $recovery_filename $repopath/recovery
 
 echo "Cleaning $repopath/kernel/"
 rm $repopath/kernel/*
-echo "Copying $(basename $kernel_filename) to repo."
-cp $kernel_filename $repopath/kernel
+echo "Packaging kernel $(basename $kernel_filename)."
+
+source $(dirname $0)/package-kernel.sh 
+package_kernel
 
 manifest_content=$(python /home/jenkins/fairphone_jenkins/generate-manifest.py $multirom_filename $recovery_filename)
 echo -n $manifest_content > "$repopath/manifest.json"

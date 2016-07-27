@@ -1,0 +1,9 @@
+ui_print("Kernel update script for the Fairphone 2");
+ui_print("--- by z3ntu ---");
+show_progress(0.8, 1);
+package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
+ui_print("***************************************");
+ui_print("Kernel installation complete. Have fun!");
+ui_print("***************************************");
+show_progress(1, 0);
+
