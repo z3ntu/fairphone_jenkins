@@ -7,6 +7,8 @@ repopath="/home/jenkins/multirom_fairphone_fp2"
 
 if [ ! -d $repopath ]; then
   git clone git@multirom.github.com:z3ntu/multirom_fairphone_fp2.git $repopath
+else 
+  git -C $repopath pull
 fi
 
 multirom_filename=$(ls -t $outpath/multirom-*-UNOFFICIAL-FP2.zip | head -1)
