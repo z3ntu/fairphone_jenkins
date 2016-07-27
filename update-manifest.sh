@@ -15,6 +15,7 @@ multirom_filename=$(ls -t $outpath/multirom-*-UNOFFICIAL-FP2.zip | head -1)
 recovery_filename=$(ls -t $outpath/TWRP_*_multirom_FP2_*.img | head -1)
 kernel_filename=$(ls -t $outpath/fairphone-2-kernel-*.img | head -1)
 # TODO Also add uninstaller (+Jenkins recipe)
+# TODO Maybe update the _filename variables to repopath location (except kernel_filename which already is)
 
 echo "Cleaning $repopath/installer/"
 rm $repopath/installer/*
