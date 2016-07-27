@@ -9,6 +9,10 @@ function package_kernel() {
   # Replace .img ending with .zip but retain name and set path to new location
   kernel_filename=$repopath/kernel/$(basename ${kernel_filename/\.img/\.zip})
   # Pack boot.img and the META-INF directory into the repo path
-  apack $kernel_filename $script_dir/tmp/boot.img $script_dir/tmp/META-INF
+  curr_pwd=$(pwd)
+  # apack / zip needs to be in the right directorxy to work correctly.
+  cd $script_dir/tmp
+  apack $kernel_filename boot.img META-INF/
+  cd $curr_pwd
   rm -r $script_dir/tmp
 }
