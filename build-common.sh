@@ -26,6 +26,7 @@ fi
 
 echo "Pulling new changes"
 repo sync -j10 -c -f
+git -C system/extras/multirom pull
 
 echo "Cleaning up"
 make -j10 clean
