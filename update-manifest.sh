@@ -13,7 +13,7 @@ fi
 
 multirom_filename=$(ls -t $outpath/multirom-*-UNOFFICIAL-FP2.zip | head -1)
 recovery_filename=$(ls -t $outpath/TWRP_*_multirom_FP2_*.img | head -1)
-kernel_filename=$(ls -t $outpath/fairphone-2-kernel-*.img | head -1)
+# kernel_filename=$(ls -t $outpath/fairphone-2-kernel-*.img | head -1)
 # TODO Also add uninstaller (+Jenkins recipe)
 # TODO Maybe update the _filename variables to repopath location (except kernel_filename which already is)
 
@@ -27,12 +27,12 @@ rm $repopath/recovery/*
 echo "Copying $(basename $recovery_filename) to repo."
 cp $recovery_filename $repopath/recovery
 
-echo "Cleaning $repopath/kernel/"
-rm $repopath/kernel/*
-echo "Packaging kernel $(basename $kernel_filename)."
+# echo "Cleaning $repopath/kernel/"
+# rm $repopath/kernel/*
+# echo "Packaging kernel $(basename $kernel_filename)."
 
-source $(dirname $0)/package-kernel.sh 
-package_kernel
+# source $(dirname $0)/package-kernel.sh 
+# package_kernel
 
 manifest_content=$(python /home/jenkins/fairphone_jenkins/generate-manifest.py $multirom_filename $recovery_filename $kernel_filename)
 echo -n $manifest_content > "$repopath/manifest.json"
