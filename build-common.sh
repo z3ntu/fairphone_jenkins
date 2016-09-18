@@ -25,6 +25,7 @@ if [ ! -d "/var/fairphone_os/ccache" ]; then
 fi
 
 echo "Pulling new changes"
+git -C .repo/manifests pull # somehow repo crashes when the manifest is updated, manually pulling fixes it
 repo sync -j10 -c -f
 git -C system/extras/multirom pull
 
