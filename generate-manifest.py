@@ -10,7 +10,7 @@ url_base = "https://raw.githubusercontent.com/z3ntu/multirom_fairphone_fp2/maste
 
 mr_filename = sys.argv[1]
 rec_filename = sys.argv[2]
-kernel_filename = sys.argv[3]
+#kernel_filename = sys.argv[3]
 uninstaller = "/home/jenkins/multirom_fairphone_fp2/uninstaller/multirom_uninstaller.zip"
 
 mr_version = mr_filename.split("-")[2].replace("v", "")
