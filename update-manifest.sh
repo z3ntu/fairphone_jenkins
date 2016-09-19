@@ -4,6 +4,7 @@ echo "Updating multirom repo."
 
 outpath="/home/jenkins/workspace/out"
 repopath="/home/jenkins/multirom_fairphone_fp2"
+committer="-c \"user.name=Luca Weiss\" -c \"user.email=z3ntu@z3ntu.xyz\""
 
 if [ ! -d $repopath ]; then
   git clone git@multirom.github.com:z3ntu/multirom_fairphone_fp2.git $repopath
@@ -41,7 +42,7 @@ echo "Updated manifest. Committing and pushing!"
 git -C $repopath add $repopath
 export GIT_AUTHOR_NAME="Jenkins"
 export GIT_AUTHOR_EMAIL="noreply@z3ntu.xyz"
-git -c "user.name=Luca Weiss" -c "user.email=z3ntu@z3ntu.xyz" -C $repopath commit -m "MultiROM FP2"
+git $committer -C $repopath commit -m "MultiROM FP2"
 # Uncomment the following line to squash to one commit
-git -C $repopath reset $(git -C $repopath commit-tree HEAD^{tree} -m "MultiROM FP2")
+git $committer -C $repopath reset $(git -C $repopath commit-tree HEAD^{tree} -m "MultiROM FP2")
 git -C $repopath push # --force
