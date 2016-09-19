@@ -45,5 +45,5 @@ export GIT_AUTHOR_NAME="Jenkins"
 export GIT_AUTHOR_EMAIL="noreply@z3ntu.xyz"
 git $committer -C $repopath commit -m "MultiROM FP2"
 # Uncomment the following line to squash to one commit
-git -C $repopath reset $(git -c "user.name=$username" -c "user.email=$useremail" -C $repopath commit-tree HEAD^{tree} -m "MultiROM FP2")
-git -c "user.name=$username" -c "user.email=$useremail" -C $repopath push # --force
+git -c "user.name=$username" -c "user.email=$useremail" -C $repopath reset $(git -c "user.name=$username" -c "user.email=$useremail" -C $repopath commit-tree HEAD^{tree} -m "MultiROM FP2")
+git -c "user.name=$username" -c "user.email=$useremail" -C $repopath push --force
