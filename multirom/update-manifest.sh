@@ -2,7 +2,7 @@
 
 echo "Updating multirom repo."
 
-outpath="/home/jenkins/workspace/out"
+outpath="/var/out"
 repopath="/home/jenkins/multirom_fairphone_fp2"
 username="Luca Weiss"
 useremail="z3ntu@z3ntu.xyz"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export USE_CCACHE=1
-export CCACHE_DIR=/var/fairphone_os/ccache
+export CCACHE_DIR=/var/ccache
 
 echo "Building in Docker."
 
@@ -19,8 +19,8 @@ else
 	cd android/
 fi
 
-if [ ! -d "/var/fairphone_os/ccache" ]; then
-	mkdir /var/fairphone_os/ccache
+if [ ! -d "$CCACHE_DIR" ]; then
+	mkdir $CCACHE_DIR
 	prebuilts/misc/linux-x86/ccache/ccache -M 100G
 fi
 
