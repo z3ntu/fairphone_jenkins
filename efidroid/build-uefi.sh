@@ -31,5 +31,5 @@ make -j9 uefi
 make -j9 otapackage
 cp out/target/fairphone/fp2/otapackage-*-fairphone_fp2.zip /var/out/
 
-echo "Cleaning up"
-make -j4 distclean
+#echo "Cleaning up"
+#make -j4 distclean
