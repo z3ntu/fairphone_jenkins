@@ -16,11 +16,6 @@ else
 	cd android/
 fi
 
-if [ ! -d "$CCACHE_DIR" ]; then
-	mkdir $CCACHE_DIR
-	prebuilts/misc/linux-x86/ccache/ccache -M 100G
-fi
-
 echo "Pulling new changes"
 git -C .repo/manifests pull # somehow repo crashes when the manifest is updated, manually pulling fixes it
 repo sync -j10 -c -f
