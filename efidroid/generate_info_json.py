@@ -3,7 +3,6 @@
 import os
 import json
 import subprocess
-import time
 
 url_base = "https://private.z3ntu.xyz/efidroid/builds/fairphone/fp2/"
 out_path = "/srv/http/efidroid/builds/fairphone/fp2/"
@@ -18,7 +17,7 @@ subprocess.run(["unzip", "-d", "/tmp/tmppathplsdontdelete", fullpath, "boot.img"
 timestamp = subprocess.check_output([os.path.dirname(os.path.realpath(__file__)) + "/get_efidroid_buildtimestamp.py", "/tmp/tmppathplsdontdelete/boot.img"])
 os.remove("/tmp/tmppathplsdontdelete/boot.img")
 
-output = [{"file": url_base + filename, "timestamp": int(time.time())}]
+output = [{"file": url_base + filename, "timestamp": int(timestamp)}]
 
 json_out = json.dumps(output, sort_keys=True)
 
